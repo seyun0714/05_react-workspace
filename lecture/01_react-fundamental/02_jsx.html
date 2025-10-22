@@ -232,7 +232,7 @@
 
       // 연습4) 아래 변수에 저장된 값이 없으면 "값없음", 값이 있으면 저장된 값을 <div> 태그로 화면에 표시하세요.
       let value;
-      const valueElement = <div>{value ? value : "값없음"}</div>;
+      const valueElement = <div>{value || "값없음"}</div>;
 
       // 연습5) 아래 color 값이 "r"이면 "red", "g"이면 "green", "b"이면 "blue" 배경색을 <div> 태그에 적용해 화면에 표시하세요.
       //       (100 x 100 크기)
