@@ -1,5 +1,13 @@
+import BeforeReducer from "./components/BeforeReducer";
+import AfterReducer from "./components/AfterReducer";
+
 function App() {
-  return <></>;
+  return (
+    <>
+      {/* <BeforeReducer /> */}
+      <AfterReducer />
+    </>
+  );
 }
 
 export default App;
