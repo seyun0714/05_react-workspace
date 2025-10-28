@@ -1,11 +1,14 @@
 import BeforeReducer from "./components/BeforeReducer";
 import AfterReducer from "./components/AfterReducer";
+import ATM from "./components/ATM";
 
 function App() {
   return (
     <>
       {/* <BeforeReducer /> */}
-      <AfterReducer />
+      {/* <AfterReducer /> */}
+
+      <ATM />
     </>
   );
 }
