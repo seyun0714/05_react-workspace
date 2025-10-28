@@ -1,0 +1,14 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+
+  background-color: lightgray;
+  color: black;
+}
+
+.header.dark-mode {
+  background-color: black;
+  color: white;
+}

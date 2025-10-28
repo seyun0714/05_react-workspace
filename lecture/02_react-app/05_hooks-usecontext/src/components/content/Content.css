@@ -1,0 +1,13 @@
+.content {
+  font-size: 20px;
+  padding: 20px;
+
+  background-color: white;
+  color: black;
+  flex: 1;
+}
+
+.content.dark-mode {
+  background-color: gray;
+  color: white;
+}

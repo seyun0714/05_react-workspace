@@ -1,11 +1,15 @@
 import NameShareApp from "./components/NameShareApp";
 import NameShareApp2 from "./components/NameShareApp2";
+import Page from "./components/page/page";
+import "./App.css";
 
 function App() {
   return (
     <>
       {/* <NameShareApp /> */}
-      <NameShareApp2 />
+      {/* <NameShareApp2 /> */}
+
+      <Page />
     </>
   );
 }
