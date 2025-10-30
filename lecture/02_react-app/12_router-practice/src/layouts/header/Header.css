@@ -1,0 +1,42 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100px;
+  position: relative;
+
+  border-bottom: 1px solid lightgray;
+  background-color: rgb(248, 248, 248);
+  color: black;
+}
+
+.header.dark-mode {
+  background-color: black;
+  color: white;
+  border: none;
+}
+
+.header-logo {
+  padding: 15px 30px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.header.dark-mode .header-modebtn {
+  border-color: white;
+  color: white;
+}
+
+.header-modebtn {
+  position: absolute;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 10px 20px;
+  right: 30px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.header-modebtn:hover {
+  font-weight: bold;
+}

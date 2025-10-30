@@ -1,21 +1,23 @@
 import { useState } from "react";
-import Content from "../content/Content";
 import Footer from "../footer/Footer";
 import Header from "../header/Header";
 import { PageContext } from "../../context/pageContext";
-import "./Page.css";
+import "./MainLayout.css";
+import { Outlet } from "react-router-dom";
 
-function Page() {
+function MainLayout() {
   const [isDark, setIsDark] = useState(false);
   return (
-    <div className="page">
+    <div className="app">
       <PageContext.Provider value={{ isDark, setIsDark }}>
         <Header />
-        <Content />
+        <main className={`content ${isDark && "dark-mode"}`}>
+          <Outlet />
+        </main>
         <Footer />
       </PageContext.Provider>
     </div>
   );
 }
 
-export default Page;
+export default MainLayout;

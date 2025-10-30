@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  font-family: "Zen-Serif", sans-serif;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Zen-Serif";
+  src: url("./assets/fonts/ZEN-SERIF-TTF-Regular.ttf");
+}
+
+.separator {
+  background-color: rgb(215, 215, 215);
+  width: calc(100% - 100px);
+  height: 1px;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,32 @@
+.menudetail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+}
+
+.menudetail-title {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  font-size: 24px;
+  font-weight: 700;
+  padding-bottom: 20px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  gap: 20px;
+}
+
+.menu-image {
+  width: 500px;
+}
