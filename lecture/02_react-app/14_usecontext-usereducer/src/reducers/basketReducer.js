@@ -16,7 +16,7 @@ export default function basketReducer(state, action) {
       return handleMinus(state, action.payload);
     }
     default: {
-      return;
+      return state;
     }
   }
 }
