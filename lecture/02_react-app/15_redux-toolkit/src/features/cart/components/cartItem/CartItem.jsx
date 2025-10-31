@@ -1,20 +1,24 @@
-import { useContext } from "react";
-import "./CartItem.css";
-import { BasketContext } from "../../../../context/basketContext";
+import { useDispatch } from 'react-redux';
+import {
+  removeFromCart,
+  increaseQuantity,
+  decreaseQuantity,
+} from '../../../../stores/cartSlice';
+import './CartItem.css';
 
 function CartItem({ item }) {
-  const { basketDispatch } = useContext(BasketContext);
+  const dispatch = useDispatch();
 
   const handleClickDelete = (item) => {
-    basketDispatch({ type: "DELETE", payload: item });
+    dispatch(removeFromCart({ item }));
   };
 
   const handleClickPlus = (item) => {
-    basketDispatch({ type: "PLUS", payload: item });
+    dispatch(increaseQuantity({ item }));
   };
 
   const handleClickMinus = (item) => {
-    basketDispatch({ type: "MINUS", payload: item });
+    dispatch(decreaseQuantity({ item }));
   };
 
   return (
@@ -22,7 +26,7 @@ function CartItem({ item }) {
       <div className="cart-item-info">
         <h4>{item.name}</h4>
         <p className="cart-item-price">
-          {item.price.toLocaleString("ko-KR")}원
+          {item.price.toLocaleString('ko-KR')}원
         </p>
       </div>
 

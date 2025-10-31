@@ -1,10 +1,14 @@
-import { useContext } from "react";
-import { ProductContext } from "../../context/productContext";
-import ProductItem from "./components/productItem/ProductItem";
-import "./Product.css";
+import { getProducts } from '../../api/productApi';
+import ProductItem from './components/productItem/ProductItem';
+import './Product.css';
+import { useState, useEffect } from 'react';
 
 function Product() {
-  const { products } = useContext(ProductContext);
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    setProducts(getProducts());
+  }, []);
 
   return (
     <div className="product">
