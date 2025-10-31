@@ -1,0 +1,21 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Zen-Serif", sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+@font-face {
+  font-family: "Zen-Serif";
+  src: url("./assets/fonts/ZEN-SERIF-TTF-Regular.ttf");
+}
