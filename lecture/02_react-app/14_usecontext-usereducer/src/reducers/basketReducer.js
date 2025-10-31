@@ -21,6 +21,12 @@ export default function basketReducer(state, action) {
   }
 }
 
+export const basketInitialState = {
+  totalNum: 0,
+  totalPrice: 0,
+  basketList: [],
+};
+
 function handleAdd(state, item) {
   const targetIndex = state.basketList.findIndex(
     (basketItem) => basketItem.id === item.id
@@ -64,11 +70,7 @@ function handleDelete(state, item) {
   };
 }
 function handleDeleteAll() {
-  return {
-    totalNum: 0,
-    totalPrice: 0,
-    basketList: [],
-  };
+  return basketInitialState;
 }
 function handlePlus(state, item) {
   const updatedList = state.basketList.map((basketItem) => {

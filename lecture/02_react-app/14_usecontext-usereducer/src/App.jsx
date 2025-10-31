@@ -3,15 +3,14 @@ import { BasketContext } from "./context/basketContext";
 import { ProductContext } from "./context/productContext";
 import MainPage from "./pages/mainPage/MainPage";
 import { useReducer } from "react";
-import basketReducer from "./reducers/basketReducer";
+import basketReducer, { basketInitialState } from "./reducers/basketReducer";
 import "./App.css";
 
 function App() {
-  const [basket, basketDispatch] = useReducer(basketReducer, {
-    totalNum: 0,
-    totalPrice: 0,
-    basketList: [],
-  });
+  const [basket, basketDispatch] = useReducer(
+    basketReducer,
+    basketInitialState
+  );
   const [products, setProducts] = useState([]);
 
   const productsValue = { products, setProducts };
