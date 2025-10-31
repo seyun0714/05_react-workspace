@@ -8,7 +8,7 @@ function Product() {
 
   return (
     <div className="product">
-      <h2>상품 목록</h2>
+      <h2 className="productlist-title">상품 목록</h2>
 
       <div className="product-grid">
         {products.length > 0 ? (
