@@ -1,6 +1,14 @@
+import { useContext } from "react";
+import { BasketContext } from "../../../../context/basketContext";
 import "./ProductItem.css";
 
-function ProductItem({ product, handleClickAdd }) {
+function ProductItem({ product }) {
+  const { basketDispatch } = useContext(BasketContext);
+
+  const handleClickAdd = (item) => {
+    basketDispatch({ type: "ADD", payload: item });
+  };
+
   return (
     <div className="product-item">
       <h3 className="product-title">{product.name}</h3>

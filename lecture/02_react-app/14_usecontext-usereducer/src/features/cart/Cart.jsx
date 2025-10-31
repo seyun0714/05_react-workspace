@@ -1,12 +1,16 @@
+import { useContext } from "react";
 import "./Cart.css";
 import CartItem from "./components/cartItem/CartItem";
-function Cart({
-  basket,
-  handleClickDelete,
-  handleClickDeleteAll,
-  handleClickPlus,
-  handleClickMinus,
-}) {
+import { BasketContext } from "../../context/basketContext";
+function Cart() {
+  const { basket, basketDispatch } = useContext(BasketContext);
+
+  const handleClickDeleteAll = () => {
+    if (confirm("장바구니의 모든 목록을 삭제하시겠습니까?")) {
+      basketDispatch({ type: "DELETE_ALL" });
+    }
+  };
+
   return (
     <div className="cart-container">
       <div className="cart-header">
@@ -29,13 +33,7 @@ function Cart({
         <div className="cart-items">
           {/* <!-- 장바구니 아이템(CartItem)들 배치 자리 --> */}
           {basket.basketList.map((item) => (
-            <CartItem
-              key={item.id}
-              item={item}
-              handleClickDelete={handleClickDelete}
-              handleClickPlus={handleClickPlus}
-              handleClickMinus={handleClickMinus}
-            />
+            <CartItem key={item.id} item={item} />
           ))}
         </div>
       )}

@@ -1,11 +1,22 @@
+import { useContext } from "react";
 import "./CartItem.css";
+import { BasketContext } from "../../../../context/basketContext";
 
-function CartItem({
-  item,
-  handleClickDelete,
-  handleClickPlus,
-  handleClickMinus,
-}) {
+function CartItem({ item }) {
+  const { basketDispatch } = useContext(BasketContext);
+
+  const handleClickDelete = (item) => {
+    basketDispatch({ type: "DELETE", payload: item });
+  };
+
+  const handleClickPlus = (item) => {
+    basketDispatch({ type: "PLUS", payload: item });
+  };
+
+  const handleClickMinus = (item) => {
+    basketDispatch({ type: "MINUS", payload: item });
+  };
+
   return (
     <div className="cart-item">
       <div className="cart-item-info">
