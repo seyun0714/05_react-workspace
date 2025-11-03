@@ -56,3 +56,11 @@ function Cart() {
 }
 
 export default Cart;
+
+/*
+  4_2. 컴포넌트 - 상태 읽기 
+    1) Redux Store의 상태를 읽기 위해서 react-redux의 useSelector() 훅을 사용합니다.
+    2) useSelector()를 통해 상태 트리의 데이터를 읽어올 수 있습니다.
+    3) 사용법
+       const value = useSelector((state) => state.슬라이스명.원하는상태);
+*/
