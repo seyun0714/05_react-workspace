@@ -1,14 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+const initialState = {
+  totalNum: 0,
+  totalPrice: 0,
+  cartList: [],
+};
+
 export const cartSlice = createSlice({
   // (1) 슬라이스 이름
   name: 'cart',
   // (2) 초기 상태 값
-  initialState: {
-    totalNums: 0,
-    totalPrice: 0,
-    cartList: [],
-  },
+  initialState: initialState,
   // (3) 리듀서
   reducers: {
     addToCart: (state, action) => {
@@ -21,7 +23,7 @@ export const cartSlice = createSlice({
       } else {
         state.cartList.push({ ...action.payload, quantity: 1 });
       }
-      state.totalNums += 1;
+      state.totalNum += 1;
       state.totalPrice += itemToAdd.price;
     },
     removeFromCart: (state, action) => {
@@ -29,6 +31,8 @@ export const cartSlice = createSlice({
       state.cartList = state.cartList.filter(
         (cartItem) => cartItem.id !== itemToDelete.id
       );
+      state.totalNum -= itemToDelete.quantity;
+      state.totalPrice -= itemToDelete.quantity * itemToDelete.price;
     },
     increaseQuantity: (state, action) => {
       const itemToIncrease = action.payload;
@@ -36,17 +40,25 @@ export const cartSlice = createSlice({
         (cartItem) => cartItem.id === itemToIncrease.id
       );
       existingItem.quantity += 1;
+      state.totalNum += 1;
+      state.totalPrice += itemToIncrease.price;
     },
     decreaseQuantity: (state, action) => {
       const itemToDecrease = action.payload;
       const existingItem = state.cartList.find(
         (cartItem) => cartItem.id === itemToDecrease.id
       );
-      existingItem.quantity -= 1;
+      if (existingItem.quantity - 1 === 0) {
+        state.cartList = state.cartList.filter(
+          (cartItem) => cartItem.id !== itemToDecrease.id
+        );
+      } else {
+        existingItem.quantity -= 1;
+      }
+      state.totalNum -= 1;
+      state.totalPrice -= itemToDecrease.price;
     },
-    clearCart: (state) => {
-      state = initialState;
-    },
+    clearCart: () => initialState,
   },
 });
 

@@ -10,15 +10,15 @@ function CartItem({ item }) {
   const dispatch = useDispatch();
 
   const handleClickDelete = (item) => {
-    dispatch(removeFromCart({ item }));
+    dispatch(removeFromCart(item));
   };
 
   const handleClickPlus = (item) => {
-    dispatch(increaseQuantity({ item }));
+    dispatch(increaseQuantity(item));
   };
 
   const handleClickMinus = (item) => {
-    dispatch(decreaseQuantity({ item }));
+    dispatch(decreaseQuantity(item));
   };
 
   return (
